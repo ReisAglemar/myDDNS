@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module carregarEnvs</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">carregarEnvs</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/reis/Dev/Pycharm/myDDNS/carregarEnvs.py">/home/reis/Dev/Pycharm/myDDNS/carregarEnvs.py</a></td></tr></table>
+    <p><span class="code">Módulo&nbsp;de&nbsp;Carregamento&nbsp;de&nbsp;Variáveis&nbsp;de&nbsp;Ambiente.<br>
+&nbsp;<br>
+Este&nbsp;módulo&nbsp;é&nbsp;responsável&nbsp;por&nbsp;ler&nbsp;arquivos&nbsp;de&nbsp;configuração&nbsp;locais&nbsp;(como&nbsp;o&nbsp;`.env`)<br>
+e&nbsp;injetá-los&nbsp;diretamente&nbsp;no&nbsp;escopo&nbsp;do&nbsp;sistema&nbsp;operacional,&nbsp;simulando&nbsp;o&nbsp;comportamento<br>
+de&nbsp;bibliotecas&nbsp;de&nbsp;terceiros&nbsp;como&nbsp;a&nbsp;`python-dotenv`.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-carregarEnvs"><strong>carregarEnvs</strong></a>()</dt><dd><span class="code">Lê&nbsp;o&nbsp;arquivo&nbsp;'.env'&nbsp;e&nbsp;carrega&nbsp;suas&nbsp;definições&nbsp;para&nbsp;as&nbsp;variáveis&nbsp;de&nbsp;ambiente&nbsp;do&nbsp;sistema.<br>
+&nbsp;<br>
+A&nbsp;função&nbsp;abre&nbsp;o&nbsp;arquivo&nbsp;em&nbsp;modo&nbsp;de&nbsp;leitura&nbsp;com&nbsp;codificação&nbsp;UTF-8,&nbsp;filtra&nbsp;linhas<br>
+que&nbsp;não&nbsp;contêm&nbsp;o&nbsp;caractere&nbsp;de&nbsp;atribuição&nbsp;'='&nbsp;ou&nbsp;que&nbsp;iniciam&nbsp;com&nbsp;'#'&nbsp;(comentários),<br>
+e&nbsp;divide&nbsp;cada&nbsp;linha&nbsp;estritamente&nbsp;na&nbsp;primeira&nbsp;ocorrência&nbsp;do&nbsp;'=',&nbsp;populando&nbsp;o&nbsp;`os.environ`.<br>
+&nbsp;<br>
+:raises&nbsp;RuntimeError:&nbsp;Caso&nbsp;o&nbsp;arquivo&nbsp;`.env`&nbsp;não&nbsp;seja&nbsp;encontrado&nbsp;no&nbsp;diretório<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;raiz&nbsp;da&nbsp;execução&nbsp;do&nbsp;script.</span></dd></dl>
+</td></tr></table>
+</body></html>

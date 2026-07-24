@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module capturarInfoParaEmail</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">capturarInfoParaEmail</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/reis/Dev/Pycharm/myDDNS/capturarInfoParaEmail.py">/home/reis/Dev/Pycharm/myDDNS/capturarInfoParaEmail.py</a></td></tr></table>
+    <p><span class="code">Módulo&nbsp;de&nbsp;Formatação&nbsp;de&nbsp;Mensagens&nbsp;para&nbsp;Notificação&nbsp;de&nbsp;E-mail.<br>
+&nbsp;<br>
+Este&nbsp;módulo&nbsp;centraliza&nbsp;a&nbsp;construção&nbsp;das&nbsp;strings&nbsp;e&nbsp;fragmentos&nbsp;em&nbsp;HTML&nbsp;que&nbsp;servem<br>
+como&nbsp;o&nbsp;corpo&nbsp;descritivo&nbsp;dos&nbsp;e-mails&nbsp;enviados&nbsp;pelo&nbsp;sistema,&nbsp;segmentando&nbsp;as&nbsp;mensagens<br>
+entre&nbsp;fluxos&nbsp;de&nbsp;sucesso&nbsp;e&nbsp;falhas&nbsp;críticas.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-capturarInfoParaEmail"><strong>capturarInfoParaEmail</strong></a>()</dt><dd><span class="code">Gera&nbsp;o&nbsp;fragmento&nbsp;HTML&nbsp;descritivo&nbsp;para&nbsp;cenários&nbsp;de&nbsp;sincronização&nbsp;bem-sucedida.<br>
+&nbsp;<br>
+A&nbsp;função&nbsp;consome&nbsp;a&nbsp;API&nbsp;de&nbsp;IP&nbsp;público&nbsp;configurada&nbsp;nas&nbsp;variáveis&nbsp;de&nbsp;ambiente<br>
+para&nbsp;exibir&nbsp;no&nbsp;corpo&nbsp;do&nbsp;e-mail&nbsp;qual&nbsp;endereço&nbsp;foi&nbsp;injetado&nbsp;na&nbsp;Cloudflare.<br>
+&nbsp;<br>
+:return:&nbsp;String&nbsp;com&nbsp;tags&nbsp;HTML&nbsp;contendo&nbsp;o&nbsp;status&nbsp;e&nbsp;o&nbsp;IP&nbsp;atualizado.<br>
+:rtype:&nbsp;str</span></dd></dl>
+ <dl><dt><a name="-capturarInfoParaEmailERRO"><strong>capturarInfoParaEmailERRO</strong></a>(e)</dt><dd><span class="code">Gera&nbsp;o&nbsp;fragmento&nbsp;HTML&nbsp;descritivo&nbsp;isolando&nbsp;e&nbsp;estilizando&nbsp;exceções&nbsp;do&nbsp;Python.<br>
+&nbsp;<br>
+Recebe&nbsp;a&nbsp;exceção&nbsp;capturada&nbsp;no&nbsp;bloco&nbsp;try/except&nbsp;principal&nbsp;e&nbsp;envelopa&nbsp;a&nbsp;mensagem<br>
+técnica&nbsp;em&nbsp;uma&nbsp;tag&nbsp;`&lt;code&gt;`&nbsp;estilizada&nbsp;para&nbsp;facilitar&nbsp;a&nbsp;depuração&nbsp;direto&nbsp;pelo&nbsp;e-mail.<br>
+&nbsp;<br>
+:param&nbsp;e:&nbsp;Instância&nbsp;da&nbsp;exceção&nbsp;ou&nbsp;erro&nbsp;capturado&nbsp;durante&nbsp;a&nbsp;execução&nbsp;do&nbsp;script.<br>
+:type&nbsp;e:&nbsp;Exception<br>
+:return:&nbsp;String&nbsp;com&nbsp;tags&nbsp;HTML&nbsp;contendo&nbsp;o&nbsp;diagnóstico&nbsp;do&nbsp;erro&nbsp;e&nbsp;o&nbsp;caminho&nbsp;dos&nbsp;logs.<br>
+:rtype:&nbsp;str</span></dd></dl>
+</td></tr></table>
+</body></html>

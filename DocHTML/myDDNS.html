@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module myDDNS</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">myDDNS</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/reis/Dev/Pycharm/myDDNS/myDDNS.py">/home/reis/Dev/Pycharm/myDDNS/myDDNS.py</a></td></tr></table>
+    <p><span class="code">Módulo&nbsp;Orquestrador&nbsp;Principal&nbsp;do&nbsp;Sistema&nbsp;de&nbsp;Dynamic&nbsp;DNS&nbsp;(myDDNS).<br>
+&nbsp;<br>
+Este&nbsp;módulo&nbsp;gerencia&nbsp;o&nbsp;fluxo&nbsp;de&nbsp;execução&nbsp;do&nbsp;DDNS:&nbsp;carrega&nbsp;as&nbsp;variáveis&nbsp;de&nbsp;ambiente,<br>
+verifica&nbsp;o&nbsp;IP&nbsp;público&nbsp;atual,&nbsp;compara&nbsp;com&nbsp;o&nbsp;cache&nbsp;local&nbsp;e&nbsp;atualiza&nbsp;os&nbsp;registros&nbsp;de<br>
+DNS&nbsp;na&nbsp;Cloudflare&nbsp;caso&nbsp;ocorram&nbsp;mudanças,&nbsp;notificando&nbsp;o&nbsp;administrador&nbsp;via&nbsp;e-mail.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-main"><strong>main</strong></a>()</dt><dd><span class="code">Executa&nbsp;a&nbsp;rotina&nbsp;cíclica&nbsp;de&nbsp;verificação&nbsp;e&nbsp;sincronização&nbsp;do&nbsp;DDNS.<br>
+&nbsp;<br>
+O&nbsp;fluxo&nbsp;consiste&nbsp;em:<br>
+1.&nbsp;Carregar&nbsp;configurações&nbsp;do&nbsp;arquivo&nbsp;.env.<br>
+2.&nbsp;Descobrir&nbsp;o&nbsp;IP&nbsp;público&nbsp;atual&nbsp;da&nbsp;rede.<br>
+3.&nbsp;Avaliar&nbsp;se&nbsp;o&nbsp;IP&nbsp;mudou&nbsp;em&nbsp;relação&nbsp;ao&nbsp;cache&nbsp;local.<br>
+4.&nbsp;Atualizar&nbsp;a&nbsp;Cloudflare&nbsp;e&nbsp;o&nbsp;cache&nbsp;se&nbsp;houver&nbsp;alteração.<br>
+5.&nbsp;Enviar&nbsp;e-mail&nbsp;de&nbsp;sucesso&nbsp;ou&nbsp;notificar&nbsp;falhas&nbsp;críticas&nbsp;em&nbsp;caso&nbsp;de&nbsp;exceção.</span></dd></dl>
+</td></tr></table>
+</body></html>

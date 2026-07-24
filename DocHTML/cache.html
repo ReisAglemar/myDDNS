@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module cache</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">cache</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/reis/Dev/Pycharm/myDDNS/cache.py">/home/reis/Dev/Pycharm/myDDNS/cache.py</a></td></tr></table>
+    <p><span class="code">Módulo&nbsp;de&nbsp;Gerenciamento&nbsp;de&nbsp;Cache&nbsp;Local&nbsp;para&nbsp;Endereços&nbsp;de&nbsp;IP.<br>
+&nbsp;<br>
+Este&nbsp;módulo&nbsp;é&nbsp;responsável&nbsp;por&nbsp;persistir&nbsp;e&nbsp;ler&nbsp;o&nbsp;último&nbsp;endereço&nbsp;de&nbsp;IP&nbsp;público<br>
+sincronizado&nbsp;em&nbsp;um&nbsp;arquivo&nbsp;de&nbsp;texto&nbsp;local,&nbsp;servindo&nbsp;como&nbsp;mecanismo&nbsp;de&nbsp;cache&nbsp;para<br>
+evitar&nbsp;requisições&nbsp;desnecessárias&nbsp;às&nbsp;APIs&nbsp;externas&nbsp;e&nbsp;à&nbsp;Cloudflare.</span></p>
+<p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-cacheAtualizar"><strong>cacheAtualizar</strong></a>(IP_PUBLICO, NOME_ARQUIVO)</dt><dd><span class="code">Escreve&nbsp;ou&nbsp;atualiza&nbsp;o&nbsp;novo&nbsp;endereço&nbsp;de&nbsp;IP&nbsp;público&nbsp;no&nbsp;arquivo&nbsp;de&nbsp;cache&nbsp;local.<br>
+&nbsp;<br>
+Valida&nbsp;se&nbsp;o&nbsp;IP&nbsp;fornecido&nbsp;é&nbsp;válido&nbsp;(não&nbsp;nulo&nbsp;ou&nbsp;vazio)&nbsp;antes&nbsp;de&nbsp;abrir&nbsp;o&nbsp;arquivo<br>
+em&nbsp;modo&nbsp;de&nbsp;escrita&nbsp;('w'),&nbsp;o&nbsp;que&nbsp;sobrescreve&nbsp;o&nbsp;conteúdo&nbsp;anterior&nbsp;de&nbsp;forma&nbsp;limpa.<br>
+&nbsp;<br>
+:param&nbsp;IP_PUBLICO:&nbsp;O&nbsp;novo&nbsp;endereço&nbsp;de&nbsp;IP&nbsp;público&nbsp;obtido&nbsp;para&nbsp;ser&nbsp;persistido.<br>
+:type&nbsp;IP_PUBLICO:&nbsp;str<br>
+:param&nbsp;NOME_ARQUIVO:&nbsp;O&nbsp;caminho&nbsp;ou&nbsp;nome&nbsp;do&nbsp;arquivo&nbsp;de&nbsp;texto&nbsp;que&nbsp;atua&nbsp;como&nbsp;cache.<br>
+:type&nbsp;NOME_ARQUIVO:&nbsp;str<br>
+:return:&nbsp;None<br>
+&nbsp;<br>
+:raises&nbsp;ValueError:&nbsp;Se&nbsp;o&nbsp;parâmetro&nbsp;`IP_PUBLICO`&nbsp;estiver&nbsp;vazio&nbsp;ou&nbsp;nulo,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;impedindo&nbsp;a&nbsp;gravação&nbsp;de&nbsp;um&nbsp;cache&nbsp;inválido.</span></dd></dl>
+ <dl><dt><a name="-cacheLer"><strong>cacheLer</strong></a>(NOME_ARQUIVO)</dt><dd><span class="code">Lê&nbsp;o&nbsp;endereço&nbsp;de&nbsp;IP&nbsp;armazenado&nbsp;no&nbsp;arquivo&nbsp;de&nbsp;cache&nbsp;local.<br>
+&nbsp;<br>
+Abre&nbsp;o&nbsp;arquivo&nbsp;especificado&nbsp;em&nbsp;modo&nbsp;de&nbsp;leitura&nbsp;com&nbsp;codificação&nbsp;UTF-8&nbsp;e<br>
+retorna&nbsp;o&nbsp;seu&nbsp;conteúdo&nbsp;textual&nbsp;por&nbsp;completo.<br>
+&nbsp;<br>
+:param&nbsp;NOME_ARQUIVO:&nbsp;O&nbsp;caminho&nbsp;ou&nbsp;nome&nbsp;do&nbsp;arquivo&nbsp;de&nbsp;texto&nbsp;que&nbsp;atua&nbsp;como&nbsp;cache.<br>
+:type&nbsp;NOME_ARQUIVO:&nbsp;str<br>
+:return:&nbsp;O&nbsp;endereço&nbsp;de&nbsp;IP&nbsp;gravado&nbsp;no&nbsp;arquivo.<br>
+:rtype:&nbsp;str</span></dd></dl>
+</td></tr></table>
+</body></html>

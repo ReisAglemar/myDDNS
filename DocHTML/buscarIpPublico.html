@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module buscarIpPublico</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">buscarIpPublico</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/reis/Dev/Pycharm/myDDNS/buscarIpPublico.py">/home/reis/Dev/Pycharm/myDDNS/buscarIpPublico.py</a></td></tr></table>
+    <p><span class="code">Módulo&nbsp;de&nbsp;Consulta&nbsp;ao&nbsp;Endereço&nbsp;de&nbsp;IP&nbsp;Público&nbsp;da&nbsp;Rede.<br>
+&nbsp;<br>
+Este&nbsp;módulo&nbsp;realiza&nbsp;requisições&nbsp;HTTP&nbsp;a&nbsp;serviços&nbsp;externos&nbsp;baseados&nbsp;em&nbsp;JSON&nbsp;para<br>
+descobrir&nbsp;e&nbsp;extrair&nbsp;o&nbsp;endereço&nbsp;IPv4&nbsp;público&nbsp;atual&nbsp;sob&nbsp;o&nbsp;qual&nbsp;o&nbsp;servidor&nbsp;local<br>
+está&nbsp;operando&nbsp;na&nbsp;internet.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="json.html">json</a><br>
+</td><td class="multicolumn"><a href="urllib.html">urllib</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-buscarIpPublico"><strong>buscarIpPublico</strong></a>(API_IP_PUBLICO)</dt><dd><span class="code">Efetua&nbsp;uma&nbsp;requisição&nbsp;GET&nbsp;nativa&nbsp;à&nbsp;API&nbsp;configurada&nbsp;para&nbsp;obter&nbsp;o&nbsp;IP&nbsp;público.<br>
+&nbsp;<br>
+A&nbsp;função&nbsp;adiciona&nbsp;um&nbsp;cabeçalho&nbsp;'User-Agent'&nbsp;para&nbsp;contornar&nbsp;bloqueios&nbsp;comuns&nbsp;de<br>
+firewalls&nbsp;corporativos&nbsp;e&nbsp;implementa&nbsp;um&nbsp;limite&nbsp;de&nbsp;tempo&nbsp;de&nbsp;resposta&nbsp;(timeout)&nbsp;de&nbsp;10<br>
+segundos&nbsp;para&nbsp;garantir&nbsp;a&nbsp;resiliência&nbsp;do&nbsp;script&nbsp;em&nbsp;execuções&nbsp;agendadas&nbsp;(Cron).<br>
+&nbsp;<br>
+:param&nbsp;API_IP_PUBLICO:&nbsp;A&nbsp;URL&nbsp;do&nbsp;endpoint&nbsp;da&nbsp;API&nbsp;que&nbsp;retorna&nbsp;o&nbsp;IP&nbsp;(ex:&nbsp;ipify&nbsp;ou&nbsp;ipinfo).<br>
+:type&nbsp;API_IP_PUBLICO:&nbsp;str<br>
+:return:&nbsp;O&nbsp;endereço&nbsp;de&nbsp;IP&nbsp;público&nbsp;em&nbsp;formato&nbsp;textual&nbsp;(ex:&nbsp;'111.111.011.37').<br>
+:rtype:&nbsp;str<br>
+&nbsp;<br>
+:raises&nbsp;RuntimeError:&nbsp;Se&nbsp;houver&nbsp;problemas&nbsp;de&nbsp;timeout,&nbsp;indisponibilidade&nbsp;da&nbsp;API&nbsp;externa,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;falhas&nbsp;na&nbsp;decodificação&nbsp;do&nbsp;JSON&nbsp;ou&nbsp;ausência&nbsp;da&nbsp;chave&nbsp;'ip'&nbsp;na&nbsp;resposta.</span></dd></dl>
+</td></tr></table>
+</body></html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module atualizarIpCloudflare</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">atualizarIpCloudflare</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/reis/Dev/Pycharm/myDDNS/atualizarIpCloudflare.py">/home/reis/Dev/Pycharm/myDDNS/atualizarIpCloudflare.py</a></td></tr></table>
+    <p><span class="code">Módulo&nbsp;de&nbsp;Integração&nbsp;com&nbsp;a&nbsp;API&nbsp;da&nbsp;Cloudflare&nbsp;para&nbsp;Atualização&nbsp;de&nbsp;DNS.<br>
+&nbsp;<br>
+Este&nbsp;módulo&nbsp;realiza&nbsp;a&nbsp;comunicação&nbsp;com&nbsp;os&nbsp;endpoints&nbsp;da&nbsp;Cloudflare&nbsp;para&nbsp;alterar<br>
+dinamicamente&nbsp;o&nbsp;conteúdo&nbsp;de&nbsp;um&nbsp;registro&nbsp;do&nbsp;tipo&nbsp;'A',&nbsp;atualizando-o&nbsp;com&nbsp;o&nbsp;novo<br>
+IP&nbsp;público&nbsp;detectado&nbsp;no&nbsp;servidor.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="json.html">json</a><br>
+</td><td class="multicolumn"><a href="urllib.html">urllib</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-atualizarIpCloudflare"><strong>atualizarIpCloudflare</strong></a>(IP_PUBLICO, ZONE_ID, RECORD_ID, CLOUDFLARE_TOKEN)</dt><dd><span class="code">Envia&nbsp;uma&nbsp;requisição&nbsp;HTTP&nbsp;PATCH&nbsp;para&nbsp;atualizar&nbsp;o&nbsp;IP&nbsp;do&nbsp;registro&nbsp;DNS&nbsp;na&nbsp;Cloudflare.<br>
+&nbsp;<br>
+A&nbsp;função&nbsp;utiliza&nbsp;uma&nbsp;requisição&nbsp;parcial&nbsp;(PATCH)&nbsp;nativa&nbsp;para&nbsp;modificar&nbsp;apenas<br>
+o&nbsp;conteúdo&nbsp;do&nbsp;IP,&nbsp;mantendo&nbsp;o&nbsp;TTL&nbsp;em&nbsp;modo&nbsp;automático&nbsp;(1)&nbsp;e&nbsp;desativando&nbsp;o&nbsp;proxy<br>
+(proxied:&nbsp;False)&nbsp;para&nbsp;garantir&nbsp;conexões&nbsp;diretas&nbsp;ao&nbsp;servidor&nbsp;local.<br>
+&nbsp;<br>
+:param&nbsp;IP_PUBLICO:&nbsp;O&nbsp;novo&nbsp;endereço&nbsp;de&nbsp;IP&nbsp;público&nbsp;a&nbsp;ser&nbsp;injetado&nbsp;no&nbsp;registro.<br>
+:type&nbsp;IP_PUBLICO:&nbsp;str<br>
+:param&nbsp;ZONE_ID:&nbsp;O&nbsp;identificador&nbsp;único&nbsp;da&nbsp;zona&nbsp;do&nbsp;domínio&nbsp;na&nbsp;Cloudflare.<br>
+:type&nbsp;ZONE_ID:&nbsp;str<br>
+:param&nbsp;RECORD_ID:&nbsp;O&nbsp;identificador&nbsp;único&nbsp;do&nbsp;registro&nbsp;DNS&nbsp;específico&nbsp;(tipo&nbsp;A).<br>
+:type&nbsp;RECORD_ID:&nbsp;str<br>
+:param&nbsp;CLOUDFLARE_TOKEN:&nbsp;Token&nbsp;de&nbsp;API&nbsp;de&nbsp;autenticação&nbsp;com&nbsp;permissões&nbsp;de&nbsp;edição&nbsp;de&nbsp;DNS.<br>
+:type&nbsp;CLOUDFLARE_TOKEN:&nbsp;str<br>
+:return:&nbsp;True&nbsp;se&nbsp;a&nbsp;Cloudflare&nbsp;responder&nbsp;com&nbsp;sucesso.<br>
+:rtype:&nbsp;bool<br>
+&nbsp;<br>
+:raises&nbsp;RuntimeError:&nbsp;Se&nbsp;a&nbsp;Cloudflare&nbsp;rejeitar&nbsp;os&nbsp;dados&nbsp;ou&nbsp;se&nbsp;houver&nbsp;falhas&nbsp;críticas<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;de&nbsp;rede/timeout&nbsp;durante&nbsp;a&nbsp;comunicação.</span></dd></dl>
+</td></tr></table>
+</body></html>

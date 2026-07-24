@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module enviarEmail</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">enviarEmail</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/reis/Dev/Pycharm/myDDNS/enviarEmail.py">/home/reis/Dev/Pycharm/myDDNS/enviarEmail.py</a></td></tr></table>
+    <p><span class="code">Módulo&nbsp;de&nbsp;Integração&nbsp;com&nbsp;a&nbsp;API&nbsp;de&nbsp;E-mails&nbsp;do&nbsp;Resend.<br>
+&nbsp;<br>
+Este&nbsp;módulo&nbsp;realiza&nbsp;o&nbsp;disparo&nbsp;de&nbsp;e-mails&nbsp;de&nbsp;forma&nbsp;100%&nbsp;nativa&nbsp;utilizando&nbsp;as<br>
+bibliotecas&nbsp;padrões&nbsp;do&nbsp;Python&nbsp;(urllib&nbsp;e&nbsp;json),&nbsp;sem&nbsp;a&nbsp;necessidade&nbsp;de&nbsp;instalar<br>
+SDKs&nbsp;ou&nbsp;dependências&nbsp;externas&nbsp;no&nbsp;ambiente&nbsp;do&nbsp;servidor.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="json.html">json</a><br>
+</td><td class="multicolumn"><a href="urllib.html">urllib</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-enviarEmail"><strong>enviarEmail</strong></a>(API_KEY_RESEND, EMAIL_REMETENTE, EMAIL_DESTINATARIO, status, assunto, corpo)</dt><dd><span class="code">Dispara&nbsp;uma&nbsp;requisição&nbsp;HTTP&nbsp;POST&nbsp;para&nbsp;a&nbsp;API&nbsp;do&nbsp;Resend&nbsp;para&nbsp;enviar&nbsp;um&nbsp;e-mail&nbsp;formatado.<br>
+&nbsp;<br>
+A&nbsp;função&nbsp;consome&nbsp;a&nbsp;função&nbsp;`gerarHtml`&nbsp;para&nbsp;envelopar&nbsp;o&nbsp;corpo&nbsp;em&nbsp;um&nbsp;template<br>
+visual&nbsp;profissional&nbsp;e&nbsp;injeta&nbsp;um&nbsp;cabeçalho&nbsp;'User-Agent'&nbsp;personalizado&nbsp;para&nbsp;evitar<br>
+bloqueios&nbsp;de&nbsp;segurança&nbsp;contra&nbsp;bots&nbsp;(WAF&nbsp;/&nbsp;Cloudflare&nbsp;403&nbsp;Forbidden).<br>
+&nbsp;<br>
+:param&nbsp;API_KEY_RESEND:&nbsp;Chave&nbsp;de&nbsp;API&nbsp;de&nbsp;autenticação&nbsp;do&nbsp;Resend&nbsp;(Bearer&nbsp;token).<br>
+:type&nbsp;API_KEY_RESEND:&nbsp;str<br>
+:param&nbsp;EMAIL_REMETENTE:&nbsp;E-mail&nbsp;de&nbsp;origem&nbsp;validado&nbsp;no&nbsp;Resend&nbsp;(ex:&nbsp;nome@dominio.com).<br>
+:type&nbsp;EMAIL_REMETENTE:&nbsp;str<br>
+:param&nbsp;EMAIL_DESTINATARIO:&nbsp;Endereço&nbsp;de&nbsp;e-mail&nbsp;que&nbsp;receberá&nbsp;a&nbsp;notificação.<br>
+:type&nbsp;EMAIL_DESTINATARIO:&nbsp;str<br>
+:param&nbsp;status:&nbsp;Define&nbsp;a&nbsp;estilização&nbsp;do&nbsp;template&nbsp;('sucesso'&nbsp;ou&nbsp;'falha').<br>
+:type&nbsp;status:&nbsp;str<br>
+:param&nbsp;assunto:&nbsp;O&nbsp;título/assunto&nbsp;que&nbsp;aparecerá&nbsp;na&nbsp;caixa&nbsp;de&nbsp;entrada.<br>
+:type&nbsp;assunto:&nbsp;str<br>
+:param&nbsp;corpo:&nbsp;O&nbsp;conteúdo&nbsp;em&nbsp;formato&nbsp;texto&nbsp;ou&nbsp;HTML&nbsp;com&nbsp;os&nbsp;detalhes&nbsp;da&nbsp;execução.<br>
+:type&nbsp;corpo:&nbsp;str<br>
+&nbsp;<br>
+:raises&nbsp;RuntimeError:&nbsp;Se&nbsp;a&nbsp;API&nbsp;do&nbsp;Resend&nbsp;rejeitar&nbsp;a&nbsp;requisição&nbsp;(HTTPError)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ou&nbsp;se&nbsp;houver&nbsp;falhas&nbsp;de&nbsp;conectividade&nbsp;com&nbsp;a&nbsp;rede.</span></dd></dl>
+</td></tr></table>
+</body></html>

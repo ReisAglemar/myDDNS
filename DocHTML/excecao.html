@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module excecao</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">excecao</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/reis/Dev/Pycharm/myDDNS/excecao.py">/home/reis/Dev/Pycharm/myDDNS/excecao.py</a></td></tr></table>
+    <p><span class="code">Módulo&nbsp;de&nbsp;Exceções&nbsp;Personalizadas&nbsp;do&nbsp;Projeto.<br>
+&nbsp;<br>
+Este&nbsp;módulo&nbsp;centraliza&nbsp;todas&nbsp;as&nbsp;exceções&nbsp;personalizadas&nbsp;utilizadas&nbsp;pela<br>
+aplicação,&nbsp;permitindo&nbsp;que&nbsp;cada&nbsp;camada&nbsp;da&nbsp;arquitetura&nbsp;comunique&nbsp;falhas&nbsp;de<br>
+forma&nbsp;semântica&nbsp;e&nbsp;desacoplada.<br>
+&nbsp;<br>
+Ao&nbsp;encapsular&nbsp;exceções&nbsp;nativas&nbsp;do&nbsp;Python&nbsp;em&nbsp;exceções&nbsp;específicas&nbsp;do&nbsp;domínio<br>
+da&nbsp;aplicação,&nbsp;torna-se&nbsp;possível&nbsp;distinguir,&nbsp;por&nbsp;exemplo,&nbsp;falhas&nbsp;do&nbsp;serviço<br>
+de&nbsp;envio&nbsp;de&nbsp;e-mails&nbsp;das&nbsp;demais&nbsp;exceções&nbsp;da&nbsp;aplicação,&nbsp;permitindo&nbsp;que&nbsp;a<br>
+camada&nbsp;principal&nbsp;(main)&nbsp;adote&nbsp;estratégias&nbsp;de&nbsp;tratamento&nbsp;diferentes&nbsp;para<br>
+cada&nbsp;cenário.<br>
+&nbsp;<br>
+As&nbsp;exceções&nbsp;personalizadas&nbsp;preservam&nbsp;a&nbsp;exceção&nbsp;original&nbsp;através&nbsp;do&nbsp;comando<br>
+'raise&nbsp;...&nbsp;from&nbsp;...',&nbsp;mantendo&nbsp;o&nbsp;traceback&nbsp;completo&nbsp;para&nbsp;fins&nbsp;de&nbsp;diagnóstico<br>
+e&nbsp;depuração.</span></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#Exception">builtins.Exception</a>(<a href="builtins.html#BaseException">builtins.BaseException</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="excecao.html#ErroEmail">ErroEmail</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="ErroEmail">class <strong>ErroEmail</strong></a>(<a href="builtins.html#Exception">builtins.Exception</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Exceção&nbsp;lançada&nbsp;quando&nbsp;ocorre&nbsp;qualquer&nbsp;falha&nbsp;durante&nbsp;o&nbsp;processo&nbsp;de&nbsp;envio<br>
+de&nbsp;e-mails.<br>
+&nbsp;<br>
+Esta&nbsp;exceção&nbsp;funciona&nbsp;como&nbsp;um&nbsp;encapsulador&nbsp;para&nbsp;qualquer&nbsp;exceção&nbsp;gerada<br>
+pelas&nbsp;bibliotecas&nbsp;utilizadas&nbsp;no&nbsp;envio&nbsp;de&nbsp;e-mails&nbsp;(erros&nbsp;de&nbsp;rede,<br>
+autenticação,&nbsp;DNS,&nbsp;timeout,&nbsp;HTTP,&nbsp;entre&nbsp;outros),&nbsp;permitindo&nbsp;que&nbsp;a&nbsp;camada<br>
+principal&nbsp;identifique&nbsp;que&nbsp;o&nbsp;subsistema&nbsp;responsável&nbsp;pela&nbsp;notificação<br>
+apresentou&nbsp;falha.<br>
+&nbsp;<br>
+A&nbsp;exceção&nbsp;original&nbsp;deve&nbsp;ser&nbsp;preservada&nbsp;utilizando:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;raise&nbsp;<a href="#ErroEmail">ErroEmail</a>(...)&nbsp;from&nbsp;excecao_original<br>
+&nbsp;<br>
+Dessa&nbsp;forma,&nbsp;o&nbsp;traceback&nbsp;mantém&nbsp;tanto&nbsp;a&nbsp;exceção&nbsp;de&nbsp;alto&nbsp;nível<br>
+(<a href="#ErroEmail">ErroEmail</a>)&nbsp;quanto&nbsp;a&nbsp;causa&nbsp;raiz&nbsp;do&nbsp;problema.<br>
+&nbsp;<br>
+:raises&nbsp;<a href="#ErroEmail">ErroEmail</a>:&nbsp;Indica&nbsp;que&nbsp;o&nbsp;serviço&nbsp;responsável&nbsp;pelo&nbsp;envio&nbsp;de&nbsp;e-mails<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;não&nbsp;conseguiu&nbsp;concluir&nbsp;sua&nbsp;operação.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="excecao.html#ErroEmail">ErroEmail</a></dd>
+<dd><a href="builtins.html#Exception">builtins.Exception</a></dd>
+<dd><a href="builtins.html#BaseException">builtins.BaseException</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><a name="ErroEmail-__init__"><strong>__init__</strong></a>(self, /, *args, **kwargs)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<hr>
+Static methods inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><a name="ErroEmail-__new__"><strong>__new__</strong></a>(*args, **kwargs)<span class="grey"><span class="heading-text"> class method of <a href="builtins.html#Exception">builtins.Exception</a></span></span></dt><dd><span class="code">Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;object.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><a name="ErroEmail-__delattr__"><strong>__delattr__</strong></a>(self, name, /)</dt><dd><span class="code">Implement&nbsp;delattr(self,&nbsp;name).</span></dd></dl>
+
+<dl><dt><a name="ErroEmail-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><span class="code">Return&nbsp;getattr(self,&nbsp;name).</span></dd></dl>
+
+<dl><dt><a name="ErroEmail-__reduce__"><strong>__reduce__</strong></a>(...)</dt><dd><span class="code">Helper&nbsp;for&nbsp;pickle.</span></dd></dl>
+
+<dl><dt><a name="ErroEmail-__repr__"><strong>__repr__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;repr(self).</span></dd></dl>
+
+<dl><dt><a name="ErroEmail-__setattr__"><strong>__setattr__</strong></a>(self, name, value, /)</dt><dd><span class="code">Implement&nbsp;setattr(self,&nbsp;name,&nbsp;value).</span></dd></dl>
+
+<dl><dt><a name="ErroEmail-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="ErroEmail-__str__"><strong>__str__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;str(self).</span></dd></dl>
+
+<dl><dt><a name="ErroEmail-add_note"><strong>add_note</strong></a>(...)</dt><dd><span class="code"><a href="builtins.html#Exception">Exception</a>.<a href="#ErroEmail-add_note">add_note</a>(note)&nbsp;--<br>
+add&nbsp;a&nbsp;note&nbsp;to&nbsp;the&nbsp;exception</span></dd></dl>
+
+<dl><dt><a name="ErroEmail-with_traceback"><strong>with_traceback</strong></a>(...)</dt><dd><span class="code"><a href="builtins.html#Exception">Exception</a>.<a href="#ErroEmail-with_traceback">with_traceback</a>(tb)&nbsp;--<br>
+set&nbsp;self.<strong>__traceback__</strong>&nbsp;to&nbsp;tb&nbsp;and&nbsp;return&nbsp;self.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><strong>__cause__</strong></dt>
+<dd><span class="code">exception&nbsp;cause</span></dd>
+</dl>
+<dl><dt><strong>__context__</strong></dt>
+<dd><span class="code">exception&nbsp;context</span></dd>
+</dl>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>__suppress_context__</strong></dt>
+</dl>
+<dl><dt><strong>__traceback__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>
