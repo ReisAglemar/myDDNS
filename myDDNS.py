@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Módulo Orquestrador Principal do Sistema de Dynamic DNS (myDDNS).
 
