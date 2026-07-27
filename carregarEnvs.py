@@ -7,7 +7,12 @@ de bibliotecas de terceiros como a `python-dotenv`.
 """
 
 import os
+from pathlib import Path
 
+from cache import Path
+
+# Diretório base absoluto do módulo para resolução dinâmica de arquivos
+DIRETORIO = Path(__file__).resolve().parent
 
 def carregarEnvs():
     """
@@ -21,8 +26,9 @@ def carregarEnvs():
                               raiz da execução do script.
         """
 
+    caminhoAbsoluto = DIRETORIO/".env"
     try:
-        with open(".env", "r", encoding="utf-8") as f:
+        with open(caminhoAbsoluto, "r", encoding="utf-8") as f:
             os.environ.update(line.strip().split("=", 1) for line in f if "=" in line and not line.startswith("#"))
     except FileNotFoundError as e:
         raise RuntimeError(f"Arquivo .env não encontrado.\n"
