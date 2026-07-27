@@ -8,6 +8,7 @@ DNS na Cloudflare caso ocorram mudanças, notificando o administrador via e-mail
 """
 
 import os
+from pathlib import Path
 from carregarEnvs import carregarEnvs
 from atualizarIpCloudflare import atualizarIpCloudflare
 from buscarIpPublico import buscarIpPublico
@@ -40,6 +41,7 @@ def main():
     API_KEY_RESEND = None
     EMAIL_REMETENTE = None
     EMAIL_DESTINATARIO = None
+    DIRETORIO = None
 
     try:
 
@@ -53,10 +55,13 @@ def main():
         API_KEY_RESEND = os.getenv("API_KEY_RESEND", "")
         EMAIL_REMETENTE = os.getenv("EMAIL_REMETENTE", "")
         EMAIL_DESTINATARIO = os.getenv("EMAIL_DESTINATARIO", "")
+        DIRETORIO = Path(__file__).resolve().parent
         IP_PUBLICO = buscarIpPublico(API_IP_PUBLICO)
 
+        caminhoAbsoluto = DIRETORIO/NOME_ARQUIVO
+
         # testa a existência do cache e a necessidade de atualizar
-        atualizar = not os.path.exists(NOME_ARQUIVO) or IP_PUBLICO != cacheLer(NOME_ARQUIVO)
+        atualizar = not caminhoAbsoluto.exists() or IP_PUBLICO != cacheLer(NOME_ARQUIVO)
 
         if atualizar:
             print(f"ips diferentes! As seguintes ações serão realizadas:\n"
