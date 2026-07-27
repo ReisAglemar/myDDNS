@@ -6,6 +6,10 @@ sincronizado em um arquivo de texto local, servindo como mecanismo de cache para
 evitar requisições desnecessárias às APIs externas e à Cloudflare.
 """
 
+from pathlib import Path
+
+# Diretório base absoluto do módulo para resolução dinâmica de arquivos
+DIRETORIO = Path(__file__).resolve().parent
 
 def cacheLer(NOME_ARQUIVO):
     """
@@ -20,7 +24,9 @@ def cacheLer(NOME_ARQUIVO):
         :rtype: str
         """
 
-    with open(NOME_ARQUIVO, 'r', encoding='utf-8') as arquivo:
+    caminhoAbsoluto = DIRETORIO/NOME_ARQUIVO
+
+    with open(caminhoAbsoluto, 'r', encoding='utf-8') as arquivo:
         ip = arquivo.read()
     return ip
 
@@ -45,6 +51,8 @@ def cacheAtualizar(IP_PUBLICO, NOME_ARQUIVO):
     if not IP_PUBLICO:
         raise ValueError("O IP informado está vazio, arquivo cache não pode ser gravado.")
 
-    with open(NOME_ARQUIVO, 'w', encoding='utf-8') as arquivo:
+    caminhoAbsoluto = DIRETORIO/NOME_ARQUIVO
+
+    with open(caminhoAbsoluto, 'w', encoding='utf-8') as arquivo:
         arquivo.write(IP_PUBLICO)
     return
