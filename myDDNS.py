@@ -28,6 +28,18 @@ def main():
         5. Enviar e-mail de sucesso ou notificar falhas críticas em caso de exceção.
         """
 
+    # Inicialização preventiva das variáveis antes do bloco try/except.
+    # Caso ocorra falha na leitura do arquivo .env, evita exceções do tipo
+    # UnboundLocalError ao tentar acessar variáveis não atribuídas na captura do erro.
+    CLOUDFLARE_TOKEN = None
+    ZONE_ID = None
+    RECORD_ID = None
+    NOME_ARQUIVO = None
+    API_IP_PUBLICO = None
+    API_KEY_RESEND = None
+    EMAIL_REMETENTE = None
+    EMAIL_DESTINATARIO = None
+
     try:
 
         carregarEnvs()
