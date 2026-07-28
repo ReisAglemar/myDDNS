@@ -49,4 +49,4 @@ def capturarInfoParaEmailERRO(e):
             f"color: #dc2626; "
             f"font-family: monospace;'>{e}</code><br>"
             f"<br>"
-            f"Por favor, verifique os logs do servidor em <code>/var/log/syslog/myDDNS.log</code> para mais informações.")
+            f"Por favor, verifique os logs do servidor em <code>/var/log/myddns.log</code> para mais informações.")
