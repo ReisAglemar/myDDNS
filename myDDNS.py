@@ -58,7 +58,7 @@ def main():
         DIRETORIO = Path(__file__).resolve().parent
         IP_PUBLICO = buscarIpPublico(API_IP_PUBLICO)
 
-        caminhoAbsoluto = DIRETORIO/NOME_ARQUIVO
+        caminhoAbsoluto = DIRETORIO / NOME_ARQUIVO
 
         # testa a existência do cache e a necessidade de atualizar
         atualizar = not caminhoAbsoluto.exists() or IP_PUBLICO != cacheLer(NOME_ARQUIVO)
@@ -93,12 +93,19 @@ def main():
         print(f"Ops! Algo não saiu conforme o esperado!\n"
               f"Detalhe: {e}")
 
-        enviarEmail(API_KEY_RESEND,
-                    EMAIL_REMETENTE,
-                    EMAIL_DESTINATARIO,
-                    "falha",
-                    "Falha no sistema",
-                    capturarInfoParaEmailERRO(e))
+        try:
+            enviarEmail(API_KEY_RESEND,
+                        EMAIL_REMETENTE,
+                        EMAIL_DESTINATARIO,
+                        "falha",
+                        "Falha no sistema",
+                        capturarInfoParaEmailERRO(e))
+
+        except ErroEmail as e:
+            print(f"Ops! Algo não saiu conforme o esperado!\n"
+                  f"Erro: {e}\n"
+                  f"Contexto: {e.__context__}\n"
+                  f"Causa: {e.__cause__}")
 
 
 if __name__ == "__main__":
