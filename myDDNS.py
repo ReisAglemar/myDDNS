@@ -6,12 +6,14 @@ Este módulo gerencia o fluxo de execução do DDNS: carrega as variáveis de am
 verifica o IP público atual, compara com o cache local e atualiza os registros de
 DNS na Cloudflare caso ocorram mudanças, notificando o administrador via e-mail.
 """
-
+import logging
 import os
 from pathlib import Path
+
 from carregarEnvs import carregarEnvs
-from atualizarIpCloudflare import atualizarIpCloudflare
+from gerarLog import configurarLogging
 from buscarIpPublico import buscarIpPublico
+from atualizarIpCloudflare import atualizarIpCloudflare
 from cache import cacheAtualizar, cacheLer
 from enviarEmail import enviarEmail
 from capturarInfoParaEmail import capturarInfoParaEmail, capturarInfoParaEmailERRO
@@ -44,7 +46,6 @@ def main():
     DIRETORIO = None
 
     try:
-
         carregarEnvs()
 
         CLOUDFLARE_TOKEN = os.getenv("CLOUDFLARE_TOKEN", "")
@@ -56,56 +57,75 @@ def main():
         EMAIL_REMETENTE = os.getenv("EMAIL_REMETENTE", "")
         EMAIL_DESTINATARIO = os.getenv("EMAIL_DESTINATARIO", "")
         DIRETORIO = Path(__file__).resolve().parent
-        IP_PUBLICO = buscarIpPublico(API_IP_PUBLICO)
 
+        IP_PUBLICO = buscarIpPublico(API_IP_PUBLICO).strip()
         caminhoAbsoluto = DIRETORIO / NOME_ARQUIVO
 
         # testa a existência do cache e a necessidade de atualizar
         atualizar = not caminhoAbsoluto.exists() or IP_PUBLICO != cacheLer(NOME_ARQUIVO)
 
         if atualizar:
-            print(f"ips diferentes! As seguintes ações serão realizadas:\n"
-                  f"1 - Atualizar Cloudflare;\n"
-                  f"2 - Atualizar Cache;\n"
-                  f"3 - Enviar E-mail.")
+            configurarLogging()
+            logging.info("=" * 30 + " NOVO EVENTO " + "=" * 30)
+            logging.info(f"Detectada alteração no IP.")
 
             # atualizar cloudflare
+            logging.info(f"Iniciando atualização na Cloudflare...")
             atualizarIpCloudflare(IP_PUBLICO, ZONE_ID, RECORD_ID, CLOUDFLARE_TOKEN)
+            logging.info(f"Cloudflare atualizada com sucesso.")
 
             # atualizar cache
+            logging.info(f"Iniciando atualização do cache local...")
             cacheAtualizar(IP_PUBLICO, NOME_ARQUIVO)
+            logging.info(f"Cache atualizado com sucesso. Novo IP: {IP_PUBLICO}")
 
             # disparo de e-mail
+            logging.info(f"Iniciando o disparo nativo de e-mail...")
             enviarEmail(API_KEY_RESEND,
                         EMAIL_REMETENTE,
                         EMAIL_DESTINATARIO,
                         "sucesso",
                         "IP Alterado",
-                        capturarInfoParaEmail())
+                        capturarInfoParaEmail(IP_PUBLICO))
+            logging.info(f"E-mail enviado com sucesso para: {EMAIL_DESTINATARIO}")
+        return 0
+
 
     except ErroEmail as e:
-        print(f"Ops! Algo não saiu conforme o esperado!\n"
-              f"Erro: {e}\n"
-              f"Contexto: {e.__context__}\n"
-              f"Causa: {e.__cause__}")
+        configurarLogging()
+        logging.info("=" * 30 + " ERRO NO SISTEMA " + "=" * 30)
+        logging.error(f"Exceção: {e}.")
+        logging.error(f"Contexto: {e.__context__}.")
+        logging.error(f"Causa: {e.__cause__}.")
+        return 1
+
 
     except Exception as e:
-        print(f"Ops! Algo não saiu conforme o esperado!\n"
-              f"Detalhe: {e}")
+        configurarLogging()
+        logging.info("=" * 30 + " ERRO NO SISTEMA " + "=" * 30)
+        logging.error(f"Falha na execução principal")
+        logging.error(f"Exceção: {e}.")
+        logging.error(f"Contexto: {e.__context__}.")
+        logging.error(f"Causa: {e.__cause__}.")
 
         try:
+            logging.info(f"Iniciando o disparo nativo de e-mail de alerta...")
             enviarEmail(API_KEY_RESEND,
                         EMAIL_REMETENTE,
                         EMAIL_DESTINATARIO,
                         "falha",
                         "Falha no sistema",
                         capturarInfoParaEmailERRO(e))
+            logging.info(f"E-mail enviado com sucesso para: {EMAIL_DESTINATARIO}")
+            return 1
+
 
         except ErroEmail as e:
-            print(f"Ops! Algo não saiu conforme o esperado!\n"
-                  f"Erro: {e}\n"
-                  f"Contexto: {e.__context__}\n"
-                  f"Causa: {e.__cause__}")
+            logging.info("=" * 30 + " ERRO NO SISTEMA " + "=" * 30)
+            logging.error(f"Exceção: {e}.")
+            logging.error(f"Contexto: {e.__context__}.")
+            logging.error(f"Causa: {e.__cause__}.")
+        return 1
 
 
 if __name__ == "__main__":
