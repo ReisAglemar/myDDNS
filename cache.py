@@ -11,6 +11,7 @@ from pathlib import Path
 # Diretório base absoluto do módulo para resolução dinâmica de arquivos
 DIRETORIO = Path(__file__).resolve().parent
 
+
 def cacheLer(NOME_ARQUIVO):
     """
         Lê o endereço de IP armazenado no arquivo de cache local.
@@ -24,10 +25,10 @@ def cacheLer(NOME_ARQUIVO):
         :rtype: str
         """
 
-    caminhoAbsoluto = DIRETORIO/NOME_ARQUIVO
+    caminhoAbsoluto = DIRETORIO / NOME_ARQUIVO
 
     with open(caminhoAbsoluto, 'r', encoding='utf-8') as arquivo:
-        ip = arquivo.read()
+        ip = arquivo.read().strip()
     return ip
 
 
@@ -51,8 +52,8 @@ def cacheAtualizar(IP_PUBLICO, NOME_ARQUIVO):
     if not IP_PUBLICO:
         raise ValueError("O IP informado está vazio, arquivo cache não pode ser gravado.")
 
-    caminhoAbsoluto = DIRETORIO/NOME_ARQUIVO
+    caminhoAbsoluto = DIRETORIO / NOME_ARQUIVO
 
     with open(caminhoAbsoluto, 'w', encoding='utf-8') as arquivo:
-        arquivo.write(IP_PUBLICO)
+        arquivo.write(IP_PUBLICO.strip())
     return
