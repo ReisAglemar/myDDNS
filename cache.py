@@ -27,10 +27,14 @@ def cacheLer(NOME_ARQUIVO):
 
     caminhoAbsoluto = DIRETORIO / NOME_ARQUIVO
 
-    with open(caminhoAbsoluto, 'r', encoding='utf-8') as arquivo:
-        ip = arquivo.read().strip()
-    return ip
+    try:
 
+        with open(caminhoAbsoluto, 'r', encoding='utf-8') as arquivo:
+            ip = arquivo.read().strip()
+        return ip
+
+    except Exception as e:
+        raise RuntimeError(f"erro ao ler o arquivo de cache {e}") from e
 
 def cacheAtualizar(IP_PUBLICO, NOME_ARQUIVO):
     """
@@ -54,6 +58,11 @@ def cacheAtualizar(IP_PUBLICO, NOME_ARQUIVO):
 
     caminhoAbsoluto = DIRETORIO / NOME_ARQUIVO
 
-    with open(caminhoAbsoluto, 'w', encoding='utf-8') as arquivo:
-        arquivo.write(IP_PUBLICO.strip())
-    return
+    try:
+
+        with open(caminhoAbsoluto, 'w', encoding='utf-8') as arquivo:
+            arquivo.write(IP_PUBLICO.strip())
+        return
+
+    except Exception as e:
+        raise RuntimeError(f"erro ao criar o arquivo de cache {e}") from e
