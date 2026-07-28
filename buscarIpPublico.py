@@ -6,9 +6,9 @@ descobrir e extrair o endereço IPv4 público atual sob o qual o servidor local
 está operando na internet.
 """
 
-
 import urllib.request
 import json
+
 
 def buscarIpPublico(API_IP_PUBLICO):
     """
@@ -37,12 +37,7 @@ def buscarIpPublico(API_IP_PUBLICO):
             return ip
 
     except urllib.error.HTTPError as httpErr:
-        detalhe = httpErr.read().decode('utf-8')
-        raise RuntimeError(f"Falha ao tentar obter o IP Público (Status {httpErr.code}).\n"
-                           f"Detalhe: {detalhe}"
-                           ) from httpErr
+        raise RuntimeError(f"Falha ao obter o IP público {httpErr.code}") from httpErr
 
     except Exception as e:
-        raise RuntimeError(f"Falha ao tentar obter o IP Público.\n"
-                           f"Detalhe: {e}"
-                           )from e
+        raise RuntimeError(f"Erro ao obter ip público {e}")from e
