@@ -36,10 +36,6 @@ def atualizarIpCloudflare(IP_PUBLICO, ZONE_ID, RECORD_ID, CLOUDFLARE_TOKEN):
     URL = f"https://api.cloudflare.com/client/v4/zones/{ZONE_ID}/dns_records/{RECORD_ID}"
 
     corpo = {
-        "name": "arreis.com.br",
-        "type": "A",
-        "ttl": 1,
-        "proxied": False,
         "content": IP_PUBLICO
     }
 
@@ -56,27 +52,13 @@ def atualizarIpCloudflare(IP_PUBLICO, ZONE_ID, RECORD_ID, CLOUDFLARE_TOKEN):
             method="PATCH"
         )
 
-        with urllib.request.urlopen(requisicao, timeout=10) as resposta:
-            codigo = resposta.getcode()
-            respostaCorpo = json.loads(resposta.read().decode('utf-8'))
+        with urllib.request.urlopen(requisicao, timeout=10):
+            # Requisição concluída com sucesso dentro do limite de tempo
+            return True
 
-            if codigo == 200 and respostaCorpo.get("success"):
-                print("DNS atualizado com sucesso")
-                return True
-            else:
-                raise RuntimeError(f"Erro ao atualizar IP: {IP_PUBLICO}\n"
-                                   f"Código: {codigo}\n"
-                                   f"Resposta: {respostaCorpo}")
 
     except urllib.error.HTTPError as httpErr:
-        detalhe = httpErr.read().decode('utf-8')
-        raise RuntimeError(f"Falha na API da Cloudflare (Status {httpErr.code}).\n"
-                           f"Detalhe: {detalhe}"
-                           )from httpErr
+        raise RuntimeError(f"Erro ao atualizar IP na Cloudflare {httpErr.code}") from httpErr
 
     except Exception as e:
-        raise RuntimeError(f"Falha crítica ao atualizar IP: {IP_PUBLICO}\n"
-                           f"Código: {codigo}\n"
-                           f"Resposta: {respostaCorpo}"
-                           f"Erro: {e}"
-                           )from e
+        raise RuntimeError(f"Erro ao atualizar IP na Cloudflare {e}")from e
