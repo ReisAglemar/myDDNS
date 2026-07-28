@@ -8,6 +8,8 @@ SDKs ou dependências externas no ambiente do servidor.
 
 import urllib.request
 import json
+from asyncio import timeouts
+
 from gerarHtml import gerarHtml
 from excecao import ErroEmail
 
@@ -50,7 +52,9 @@ def enviarEmail(API_KEY_RESEND,
     headers = {
         "Authorization": f"Bearer {API_KEY_RESEND}",
         "Content-Type": "application/json",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                      "AppleWebKit/537.36 (KHTML, like Gecko) "
+                      "Chrome/120.0.0.0 Safari/537.36"
     }
 
     corpoRequisicao = {
@@ -61,7 +65,6 @@ def enviarEmail(API_KEY_RESEND,
     }
 
     try:
-        print("Iniciando envio de e-mail via request nativo...")
         dadosFinais = json.dumps(corpoRequisicao).encode("utf-8")
 
         requisicao = urllib.request.Request(
@@ -71,9 +74,9 @@ def enviarEmail(API_KEY_RESEND,
             method="POST"
         )
 
-        with urllib.request.urlopen(requisicao) as resposta:
-            if resposta.status in (200, 201):
-                print(f"E-mail disparado com sucesso para {EMAIL_DESTINATARIO}!")
+        with urllib.request.urlopen(requisicao, timeout=10):
+            # Requisição concluída com sucesso dentro do limite de tempo
+            return
 
     except Exception as e:
-        raise ErroEmail(e)from e
+        raise ErroEmail(f"Erro ao enviar e-mail {e}")from e
