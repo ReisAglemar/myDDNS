@@ -10,7 +10,7 @@ import os
 from buscarIpPublico import buscarIpPublico
 
 
-def capturarInfoParaEmail():
+def capturarInfoParaEmail(iP):
     """
         Gera o fragmento HTML descritivo para cenários de sincronização bem-sucedida.
 
@@ -23,7 +23,7 @@ def capturarInfoParaEmail():
 
     return (f"DDNS Atualizado com Sucesso!<br>"
             f"<br>"
-            f"IP Atual: <strong>{buscarIpPublico(os.getenv("API_IP_PUBLICO", ""))}</strong><br>")
+            f"IP Atual: <strong>{iP}</strong><br>")
 
 
 def capturarInfoParaEmailERRO(e):
